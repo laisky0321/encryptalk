@@ -17,7 +17,8 @@ with open(f"./cert/{id}/client_public.pem", "wb") as f:
 with open(f"./cert/{id}/server_private.pem", "wb") as f:
     f.write(key_server.export_key())
 
-
+if os.path.exists(f"./cert/{id}/key.pem"):
+    os.remove(f"./cert/{id}/key.pem")
 with open(f"./cert/{id}/key.pem", "ab") as f:
     f.write((id+"\n").encode())
     f.write("|||\n".encode())
