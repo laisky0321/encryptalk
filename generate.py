@@ -36,7 +36,7 @@ sql_user=config["mysql"]["user"]
 sql_password=config["mysql"]["password"]
 print("数据库配置加载成功")
 
-name=input("输入用户名")
+name=input("输入用户名：")
 conn=mysql.connector.connect(host=sql_host,port=sql_port, user=sql_user, password=sql_password, database=sql_database,ssl_disabled=True)
 cursor = conn.cursor()
 cursor.execute("INSERT INTO users (id,user) VALUES (%s, %s)", (int(id),name))
